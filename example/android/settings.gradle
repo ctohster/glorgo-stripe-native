@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':glorgo-stripe-native'
+project(':glorgo-stripe-native').projectDir = new File(rootProject.projectDir, '../node_modules/glorgo-stripe-native/android')
+
+include ':app'

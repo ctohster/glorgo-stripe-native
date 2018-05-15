@@ -1,0 +1,7 @@
+platform :ios, '9.0'
+
+workspace 'example'
+
+target "example" do
+  pod 'Stripe', '~> 12.1.0'
+end

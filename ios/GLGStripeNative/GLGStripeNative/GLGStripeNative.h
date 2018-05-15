@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Stripe/Stripe.h>
+#import <React/RCTBridgeModule.h>
 
-@interface GLGStripeNative : NSObject
+@interface GLGStripeNative : NSObject <RCTBridgeModule, STPAddCardViewControllerDelegate>
 
 @end

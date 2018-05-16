@@ -15,10 +15,15 @@ import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.model.Source;
 import com.stripe.android.view.AddSourceActivity;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.stripe.android.view.AddSourceActivity.EXTRA_NEW_SOURCE;
 
 public class StripeNativeModule extends ReactContextBaseJavaModule {
     private static final int OPEN_ADD_CARD_SOURCE = 1;
+    private static final String USER_CANCELLED = "USER_CANCELLED";
+    private static final String GET_SOURCE_FAILED = "GET_SOURCE_FAILED";
     private Promise openAddCardSourceViewPromise;
 
     private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
@@ -28,11 +33,11 @@ public class StripeNativeModule extends ReactContextBaseJavaModule {
             if (requestCode == OPEN_ADD_CARD_SOURCE) {
                 if (openAddCardSourceViewPromise != null) {
                     if (resultCode == Activity.RESULT_CANCELED) {
-                        openAddCardSourceViewPromise.resolve("failed");
+                        openAddCardSourceViewPromise.reject(USER_CANCELLED, "User cancelled the action");
                     } else if (resultCode == Activity.RESULT_OK) {
                         Bundle bundle = intent.getExtras();
                         if (bundle == null) {
-                            openAddCardSourceViewPromise.reject("No image data found");
+                            openAddCardSourceViewPromise.reject(GET_SOURCE_FAILED, "No result received");
                         } else {
                             String sourceString = bundle.getString(EXTRA_NEW_SOURCE);
                             Source source = Source.fromString(sourceString);
@@ -55,6 +60,13 @@ public class StripeNativeModule extends ReactContextBaseJavaModule {
     @Override
     public String getName() {
         return "GLGStripeNative";
+    }
+
+    @Override
+    public Map<String, Object> getConstants() {
+        final Map<String, Object> constants = new HashMap<>();
+        constants.put(USER_CANCELLED, USER_CANCELLED);
+        return constants;
     }
 
     @ReactMethod

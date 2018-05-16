@@ -6,6 +6,8 @@ class StripeNative {
   init = (options = {}) => {
     this.options = options
   }
+  
+  USER_CANCELLED = GLGStripeNative.USER_CANCELLED
 
   openAddCardSourceView = () => {
     return GLGStripeNative.openAddCardSourceView(this.options)

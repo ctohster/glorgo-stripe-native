@@ -18,19 +18,25 @@
 
 RCT_EXPORT_MODULE()
 
+- (NSDictionary *)constantsToExport
+{
+    return @{ USER_CANCELLED: USER_CANCELLED };
+}
+
 RCT_EXPORT_METHOD(openAddCardSourceView:(NSDictionary *)options
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
     STPPaymentConfiguration *configuration = [[STPPaymentConfiguration alloc] init];
     configuration.publishableKey = options[@"publishableKey"];
     configuration.createCardSources = YES;
-    
+
     STPTheme *theme = [[STPTheme alloc] init];
-    
+
     promiseResolver = resolve;
+    promiseRejector = reject;
     STPAddCardViewController *addCardViewController = [[STPAddCardViewController alloc] initWithConfiguration:configuration theme:theme];
     addCardViewController.delegate = self;
-    
+
     // STPAddCardViewController must be shown inside a UINavigationController.
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:addCardViewController];
     [RCTPresentedViewController() presentViewController:navigationController animated:YES completion:nil];
@@ -39,8 +45,8 @@ RCT_EXPORT_METHOD(openAddCardSourceView:(NSDictionary *)options
 #pragma mark STPAddCardViewControllerDelegate
 
 - (void)addCardViewControllerDidCancel:(STPAddCardViewController *)addCardViewController {
-    // Dismiss add card view controller
     [RCTPresentedViewController() dismissViewControllerAnimated:YES completion:nil];
+    promiseRejector(USER_CANCELLED, @"User cancelled controller", nil);
 }
 
 - (void)addCardViewController:(STPAddCardViewController *)addCardViewController

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F0C230320AA8CC500C28F40 /* GLGStripeNative.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C230220AA8CC500C28F40 /* GLGStripeNative.m */; };
 		2F0C230420AA8CC500C28F40 /* GLGStripeNative.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F0C230120AA8CC500C28F40 /* GLGStripeNative.h */; };
+		2FEB6D7620AD78580038EFC0 /* GLGStripeCardIconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB6D7520AD78580038EFC0 /* GLGStripeCardIconManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		2F0C22FE20AA8CC500C28F40 /* libGLGStripeNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLGStripeNative.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0C230120AA8CC500C28F40 /* GLGStripeNative.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLGStripeNative.h; sourceTree = "<group>"; };
 		2F0C230220AA8CC500C28F40 /* GLGStripeNative.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLGStripeNative.m; sourceTree = "<group>"; };
+		2FEB6D7520AD78580038EFC0 /* GLGStripeCardIconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLGStripeCardIconManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		2F0C230020AA8CC500C28F40 /* GLGStripeNative */ = {
 			isa = PBXGroup;
 			children = (
+				2FEB6D7520AD78580038EFC0 /* GLGStripeCardIconManager.m */,
 				2F0C230120AA8CC500C28F40 /* GLGStripeNative.h */,
 				2F0C230220AA8CC500C28F40 /* GLGStripeNative.m */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEB6D7620AD78580038EFC0 /* GLGStripeCardIconManager.m in Sources */,
 				2F0C230320AA8CC500C28F40 /* GLGStripeNative.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

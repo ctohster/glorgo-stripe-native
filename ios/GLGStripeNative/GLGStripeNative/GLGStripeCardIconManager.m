@@ -17,6 +17,11 @@
 
 RCT_EXPORT_MODULE()
 
+RCT_CUSTOM_VIEW_PROPERTY(brand, NSString, UIImageView)
+{
+    view.image = [STPImageLibrary brandImageForCardBrand:[STPCard brandFromString:json]];
+}
+
 - (UIView *)view
 {
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[STPImageLibrary visaCardImage]];

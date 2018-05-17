@@ -6,10 +6,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
-public class StripeNativePackage implements ReactPackage{
+public class StripeNativePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
@@ -19,6 +19,8 @@ public class StripeNativePackage implements ReactPackage{
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
+        List<ViewManager> views = new ArrayList<>();
+        views.add(new StripeNativeCardIconManager());
+        return views;
     }
 }

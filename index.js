@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { NativeModules, requireNativeComponent } from 'react-native'
 
@@ -15,10 +16,13 @@ class StripeNative {
   }
 }
 
-const NativeCardIcon = requireNativeComponent('GLGStripeCardIcon', null)
-const StripeCardIcon = () => <NativeCardIcon style={{height: 20, width: 32}}/>
-
-export default {
-  StripeNativeManager: new StripeNative(),
-  StripeCardIcon
+const interfance = {
+  name: 'GLGStripeCardIcon',
+  propTypes: {
+    brand: PropTypes.string
+  }
 }
+const GLGStripeCardIcon = requireNativeComponent('GLGStripeCardIcon', null)
+
+export const StripeCardIcon = ({brand}) => <GLGStripeCardIcon brand={brand} style={{height: 20, width: 32}}/>
+export const StripeNativeManager = new StripeNative()

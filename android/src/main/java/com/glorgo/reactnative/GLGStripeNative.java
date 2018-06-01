@@ -20,7 +20,7 @@ import java.util.Map;
 
 import static com.stripe.android.view.AddSourceActivity.EXTRA_NEW_SOURCE;
 
-public class StripeNativeModule extends ReactContextBaseJavaModule {
+public class GLGStripeNative extends ReactContextBaseJavaModule {
     private static final int OPEN_ADD_CARD_SOURCE = 1;
     private static final String USER_CANCELLED = "USER_CANCELLED";
     private static final String GET_SOURCE_FAILED = "GET_SOURCE_FAILED";
@@ -51,7 +51,7 @@ public class StripeNativeModule extends ReactContextBaseJavaModule {
         }
     };
 
-    public StripeNativeModule(ReactApplicationContext reactContext) {
+    public GLGStripeNative(ReactApplicationContext reactContext) {
         super(reactContext);
 
         reactContext.addActivityEventListener(mActivityEventListener);

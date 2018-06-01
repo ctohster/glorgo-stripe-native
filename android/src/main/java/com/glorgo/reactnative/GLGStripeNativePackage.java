@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StripeNativePackage implements ReactPackage {
+public class GLGStripeNativePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new StripeNativeModule(reactContext));
+        modules.add(new GLGStripeNative(reactContext));
         return modules;
     }
 

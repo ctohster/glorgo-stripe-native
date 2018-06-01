@@ -23,6 +23,11 @@ RCT_EXPORT_MODULE()
     return @{ USER_CANCELLED: USER_CANCELLED };
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return NO;
+}
+
 RCT_EXPORT_METHOD(openAddCardSourceView:(NSDictionary *)options
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
